@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jo Lernout | The Visionary Behind Speech Tech</title>
+    <style>
+        /* Premium Dark Visionary Theme - Apple Inspired */
+        :root {
+            --background: #000000;
+            --foreground: #f5f5f7;
+
+            /* Accents - Gold/Amber for "Visionary" feel, refined */
+            --primary: #f59e0b;
+            --primary-foreground: #000000;
+
+            --secondary: #1d1d1f;
+            --secondary-foreground: #f5f5f7;
+
+            --muted: #424245;
+            --muted-foreground: #86868b;
+
+            --accent: #1d1d1f;
+            --accent-foreground: #f5f5f7;
+
+            --border: #424245;
+            --radius: 18px;
+            /* Slightly more rounded for modern feel */
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            /* System font stack targets SF Pro on Apple devices */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--foreground);
+            background: var(--background);
+            font-feature-settings: "rlig" 1, "calt" 1;
+            line-height: 1.5;
+            font-size: 17px;
+            /* Apple body text size */
+            overflow-x: hidden;
+        }
+
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--background);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--muted);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--muted-foreground);
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 980px;
+            /* Apple's typical max-width for content */
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .grid-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Typography - Apple Style */
+        h1,
+        h2,
+        h3 {
+            color: var(--foreground);
+            margin-top: 0;
+            letter-spacing: -0.015em;
+        }
+
+        h1 {
+            font-size: 56px;
+            line-height: 1.07143;
+            font-weight: 700;
+            letter-spacing: -0.005em;
+            margin-bottom: 0.4em;
+        }
+
+        h2 {
+            font-size: 40px;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: 0em;
+            margin-bottom: 40px;
+            color: var(--foreground);
+            /* Apple headers are usually consistent color */
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 24px;
+            line-height: 1.16667;
+            font-weight: 600;
+            letter-spacing: .009em;
+            margin-bottom: 0.4em;
+        }
+
+        p {
+            font-size: 19px;
+            /* Larger, readable text like Apple landing pages */
+            line-height: 1.47059;
+            font-weight: 400;
+            letter-spacing: .011em;
+            color: #a1a1a6;
+            /* Softer text color */
+            margin-bottom: 1.2em;
+        }
+
+        strong {
+            color: var(--foreground);
+            font-weight: 600;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #fbbf24, #d97706);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            /* Ensure gradient works */
+        }
+
+        /* Specific Classes */
+        .logo {
+            font-weight: 600;
+            font-size: 21px;
+            letter-spacing: -0.011em;
+            color: var(--foreground);
+        }
+
+        .hero-desc {
+            font-size: 24px;
+            line-height: 1.33333;
+            font-weight: 400;
+            letter-spacing: .009em;
+            color: #86868b;
+            margin-bottom: 40px;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: var(--muted-foreground);
+            font-size: 21px;
+            line-height: 1.381;
+            font-weight: 400;
+        }
+
+        .agent-status {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: monospace;
+            color: var(--primary);
+            font-size: 12px;
+            pointer-events: none;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+        }
+
+        /* Components */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 980px;
+            font-size: 17px;
+            line-height: 1.47059;
+            font-weight: 600;
+            letter-spacing: -.022em;
+            transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn:hover {
+            transform: scale(1.02);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            /* Very subtle */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 20px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: none;
+            /* Apple rarely uses visible borders on cards */
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: scale(1.02);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--foreground);
+        }
+
+        .card p {
+            font-size: 17px;
+            margin-bottom: 0;
+        }
+
+        .timeline-item {
+            background: transparent;
+            /* Cleaner look */
+            border-left: 2px solid var(--primary);
+            padding: 10px 0 10px 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 24px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .quote-box {
+            font-size: 24px;
+            line-height: 1.4;
+            font-weight: 600;
+            font-style: normal;
+            text-align: center;
+            color: var(--foreground);
+            border: none;
+            padding: 40px;
+            margin: 60px 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: #86868b;
+            font-size: 12px;
+        }
+
+        /* Small translation attribution in footer */
+        footer .translated-by {
+            font-size: 10px;
+            opacity: 0.6;
+            margin-top: 0.5rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            z-index: 1000;
+            height: 44px;
+            /* Apple standard nav height */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            /* Keep faint border */
+        }
+
+        .nav-content {
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #e8e8ed;
+            text-decoration: none;
+            font-size: 12px;
+            /* Small, concise nav */
+            line-height: 1;
+            font-weight: 400;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: #fff;
+        }
+
+        /* Language selector styling */
+        nav select {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--foreground);
+            border: 1px solid var(--muted);
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            margin-left: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 44px;
+            background: #000;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        #did-agent-root {
+            width: 100%;
+            height: 600px;
+            /* Taller for impact */
+            background: #000;
+            border-radius: 24px;
+            overflow: hidden;
+            /* Apple-style shadow */
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Stats */
+        .stat-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.1;
+            letter-spacing: -0.003em;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 8px;
+            color: #86868b;
+        }
+
+        section {
+            padding: 120px 0;
+            /* More whitespace */
+            border-bottom: none;
+            /* Clean separation by space */
+        }
+
+        /* Hamburger Menu & Mobile Styles */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 20px;
+            height: 1px;
+            /* Thinner lines */
+            margin: 6px 0;
+            background-color: #e8e8ed;
+            transition: all 0.3s ease;
+        }
+
+        /* Hamburger Active State (X shape) */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 44px;
+                /* Below nav */
+                left: 0;
+                /* Change from right:0 to make it full width properly */
+                width: 100%;
+                height: calc(100vh - 44px);
+                background: #000;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 40px;
+                gap: 1rem;
+                transform: translateY(-100%);
+                /* Slide down */
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                opacity: 0;
+                /* Hide initially */
+                pointer-events: none;
+                z-index: 999;
+                box-sizing: border-box;
+                /* Fix padding issues */
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-links a {
+                font-size: 28px;
+                font-weight: 600;
+                color: #f5f5f7;
+                opacity: 0;
+                /* For stagger animation later if desired */
+                animation: fadeIn 0.5s forwards 0.2s;
+            }
+
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* Mobile Text Sizes */
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .hero {
+                padding-top: 88px;
+                align-items: flex-start;
+                text-align: center;
+            }
+
+            .grid-2,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            #did-agent-root {
+                height: 400px;
+            }
+
+            .quote-box {
+                padding: 20px;
+                font-size: 20px;
+            }
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            color: var(--primary);
+            margin-top: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">JO LERNOUT</div>
+
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-links">
+                <a href="#about" data-i18n="nav_about">About</a>
+                <a href="#technology" data-i18n="nav_tech">Technology</a>
+                <a href="#drama" data-i18n="nav_drama">The Greek Drama</a>
+                <a href="#legacy" data-i18n="nav_legacy">Legacy</a>
+                <a href="#future" data-i18n="nav_future">The Future</a>
+                <a href="app.html" style="color: var(--primary); font-weight: 600;" data-i18n="nav_apps">Apps</a>
+            </div>
+
+            <!-- Language selector -->
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="nl">Nederlands</option>
+                <option value="Flemish">Flemish</option>
+                <option value="Abkhaz">Abkhaz</option>
+                <option value="Acehnese">Acehnese</option>
+                <option value="Acholi">Acholi</option>
+                <option value="Afar">Afar</option>
+                <option value="Afrikaans">Afrikaans</option>
+                <option value="Albanian">Albanian</option>
+                <option value="Alur">Alur</option>
+                <option value="Amharic">Amharic</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Armenian">Armenian</option>
+                <option value="Assamese">Assamese</option>
+                <option value="Avar">Avar</option>
+                <option value="Awadhi">Awadhi</option>
+                <option value="Aymara">Aymara</option>
+                <option value="Azerbaijani">Azerbaijani</option>
+                <option value="Balinese">Balinese</option>
+                <option value="Baluchi">Baluchi</option>
+                <option value="Bambara">Bambara</option>
+                <option value="Baoulé">Baoulé</option>
+                <option value="Bashkir">Bashkir</option>
+                <option value="Basque">Basque</option>
+                <option value="Batak Karo">Batak Karo</option>
+                <option value="Batak Simalungun">Batak Simalungun</option>
+                <option value="Batak Toba">Batak Toba</option>
+                <option value="Belarusian">Belarusian</option>
+                <option value="Bemba">Bemba</option>
+                <option value="Bengali">Bengali</option>
+                <option value="Betawi">Betawi</option>
+                <option value="Bhojpuri">Bhojpuri</option>
+                <option value="Bikol">Bikol</option>
+                <option value="Bosnian">Bosnian</option>
+                <option value="Breton">Breton</option>
+                <option value="Bulgarian">Bulgarian</option>
+                <option value="Buryat">Buryat</option>
+                <option value="Cantonese">Cantonese</option>
+                <option value="Catalan">Catalan</option>
+                <option value="Cebuano">Cebuano</option>
+                <option value="Chamorro">Chamorro</option>
+                <option value="Chechen">Chechen</option>
+                <option value="Chichewa">Chichewa</option>
+                <option value="Chinese (Simplified)">Chinese (Simplified)</option>
+                <option value="Chinese (Traditional)">Chinese (Traditional)</option>
+                <option value="Chuukese">Chuukese</option>
+                <option value="Chuvash">Chuvash</option>
+                <option value="Corsican">Corsican</option>
+                <option value="Crimean Tatar (Cyrillic)">Crimean Tatar (Cyrillic)</option>
+                <option value="Crimean Tatar (Latin)">Crimean Tatar (Latin)</option>
+                <option value="Croatian">Croatian</option>
+                <option value="Czech">Czech</option>
+                <option value="Danish">Danish</option>
+                <option value="Dari">Dari</option>
+                <option value="Dhivehi">Dhivehi</option>
+                <option value="Dinka">Dinka</option>
+                <option value="Dogri">Dogri</option>
+                <option value="Dombe">Dombe</option>
+                <option value="Dutch">Dutch</option>
+                <option value="Dyula">Dyula</option>
+                <option value="Dzongkha">Dzongkha</option>
+                <option value="Esperanto">Esperanto</option>
+                <option value="Estonian">Estonian</option>
+                <option value="Ewe">Ewe</option>
+                <option value="Faroese">Faroese</option>
+                <option value="Fijian">Fijian</option>
+                <option value="Filipino">Filipino</option>
+                <option value="Finnish">Finnish</option>
+                <option value="Fon">Fon</option>
+                <option value="French">French</option>
+                <option value="French (Canada)">French (Canada)</option>
+                <option value="Frisian">Frisian</option>
+                <option value="Friulian">Friulian</option>
+                <option value="Fulani">Fulani</option>
+                <option value="Ga">Ga</option>
+                <option value="Galician">Galician</option>
+                <option value="Georgian">Georgian</option>
+                <option value="German">German</option>
+                <option value="Greek">Greek</option>
+                <option value="Guarani">Guarani</option>
+                <option value="Gujarati">Gujarati</option>
+                <option value="Haitian Creole">Haitian Creole</option>
+                <option value="Hakha Chin">Hakha Chin</option>
+                <option value="Hausa">Hausa</option>
+                <option value="Hawaiian">Hawaiian</option>
+                <option value="Hebrew">Hebrew</option>
+                <option value="Hiligaynon">Hiligaynon</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Hmong">Hmong</option>
+                <option value="Hungarian">Hungarian</option>
+                <option value="Hunsrik">Hunsrik</option>
+                <option value="Iban">Iban</option>
+                <option value="Icelandic">Icelandic</option>
+                <option value="Igbo">Igbo</option>
+                <option value="Ilocano">Ilocano</option>
+                <option value="Indonesian">Indonesian</option>
+                <option value="Inuktut (Latin)">Inuktut (Latin)</option>
+                <option value="Inuktut (Syllabics)">Inuktut (Syllabics)</option>
+                <option value="Irish">Irish</option>
+                <option value="Italian">Italian</option>
+                <option value="Jamaican Patois">Jamaican Patois</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Javanese">Javanese</option>
+                <option value="Jingpo">Jingpo</option>
+                <option value="Kalaallisut">Kalaallisut</option>
+                <option value="Kannada">Kannada</option>
+                <option value="Kanuri">Kanuri</option>
+                <option value="Kapampangan">Kapampangan</option>
+                <option value="Kazakh">Kazakh</option>
+                <option value="Khasi">Khasi</option>
+                <option value="Khmer">Khmer</option>
+                <option value="Kiga">Kiga</option>
+                <option value="Kikongo">Kikongo</option>
+                <option value="Kinyarwanda">Kinyarwanda</option>
+                <option value="Kituba">Kituba</option>
+                <option value="Kokborok">Kokborok</option>
+                <option value="Komi">Komi</option>
+                <option value="Konkani">Konkani</option>
+                <option value="Korean">Korean</option>
+                <option value="Krio">Krio</option>
+                <option value="Kurdish (Kurmanji)">Kurdish (Kurmanji)</option>
+                <option value="Kurdish (Sorani)">Kurdish (Sorani)</option>
+                <option value="Kyrgyz">Kyrgyz</option>
+                <option value="Lao">Lao</option>
+                <option value="Latgalian">Latgalian</option>
+                <option value="Latin">Latin</option>
+                <option value="Latvian">Latvian</option>
+                <option value="Ligurian">Ligurian</option>
+                <option value="Limburgish">Limburgish</option>
+                <option value="Lingala">Lingala</option>
+                <option value="Lithuanian">Lithuanian</option>
+                <option value="Lombard">Lombard</option>
+                <option value="Luganda">Luganda</option>
+                <option value="Luo">Luo</option>
+                <option value="Luxembourgish">Luxembourgish</option>
+                <option value="Macedonian">Macedonian</option>
+                <option value="Madurese">Madurese</option>
+                <option value="Maithili">Maithili</option>
+                <option value="Makassar">Makassar</option>
+                <option value="Malagasy">Malagasy</option>
+                <option value="Malay">Malay</option>
+                <option value="Malay (Jawi)">Malay (Jawi)</option>
+                <option value="Malayalam">Malayalam</option>
+                <option value="Maltese">Maltese</option>
+                <option value="Mam">Mam</option>
+                <option value="Manx">Manx</option>
+                <option value="Maori">Maori</option>
+                <option value="Marathi">Marathi</option>
+                <option value="Marshallese">Marshallese</option>
+                <option value="Marwadi">Marwadi</option>
+                <option value="Mauritian Creole">Mauritian Creole</option>
+                <option value="Meadow Mari">Meadow Mari</option>
+                <option value="Meiteilon (Manipuri)">Meiteilon (Manipuri)</option>
+                <option value="Minang">Minang</option>
+                <option value="Mizo">Mizo</option>
+                <option value="Mongolian">Mongolian</option>
+                <option value="Myanmar (Burmese)">Myanmar (Burmese)</option>
+                <option value="Nahuatl (Eastern Huasteca)">Nahuatl (Eastern Huasteca)</option>
+                <option value="Ndau">Ndau</option>
+                <option value="Ndebele (South)">Ndebele (South)</option>
+                <option value="Napalbhasa (Newari)">Napalbhasa (Newari)</option>
+                <option value="NKo">NKo</option>
+                <option value="Norwegian">Norwegian</option>
+                <option value="Nuer">Nuer</option>
+                <option value="Occitan">Occitan</option>
+                <option value="Odia (Oriya)">Odia (Oriya)</option>
+                <option value="Oromo">Oromo</option>
+                <option value="Ossetian">Ossetian</option>
+                <option value="Pangasinan">Pangasinan</option>
+                <option value="Papiamento">Papiamento</option>
+                <option value="Pashto">Pashto</option>
+                <option value="Persian">Persian</option>
+                <option value="Polish">Polish</option>
+                <option value="Portuguese (Brazil)">Portuguese (Brazil)</option>
+                <option value="Portuguese (Portugal)">Portuguese (Portugal)</option>
+                <option value="Punjabi (Gurmukhi)">Punjabi (Gurmukhi)</option>
+                <option value="Punjabi (Shahmukhi)">Punjabi (Shahmukhi)</option>
+                <option value="Quechua">Quechua</option>
+                <option value="Qʼeqchiʼ">Qʼeqchiʼ</option>
+                <option value="Romani">Romani</option>
+                <option value="Romanian">Romanian</option>
+                <option value="Rundi">Rundi</option>
+                <option value="Russian">Russian</option>
+                <option value="Sami (North)">Sami (North)</option>
+                <option value="Samoan">Samoan</option>
+                <option value="Sango">Sango</option>
+                <option value="Sanskrit">Sanskrit</option>
+                <option value="Santali (Latin)">Santali (Latin)</option>
+                <option value="Santali (Ol Chiki)">Santali (Ol Chiki)</option>
+                <option value="Scots Gaelic">Scots Gaelic</option>
+                <option value="Sepedi">Sepedi</option>
+                <option value="Serbian">Serbian</option>
+                <option value="Sesotho">Sesotho</option>
+                <option value="Seychellois Creole">Seychellois Creole</option>
+                <option value="Shan">Shan</option>
+                <option value="Shona">Shona</option>
+                <option value="Sicilian">Sicilian</option>
+                <option value="Silesian">Silesian</option>
+                <option value="Sindhi">Sindhi</option>
+                <option value="Sinhala">Sinhala</option>
+                <option value="Slovak">Slovak</option>
+                <option value="Slovenian">Slovenian</option>
+                <option value="Somali">Somali</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Sundanese">Sundanese</option>
+                <option value="Susu">Susu</option>
+                <option value="Swahili">Swahili</option>
+                <option value="Swati">Swati</option>
+                <option value="Swedish">Swedish</option>
+                <option value="Tahitian">Tahitian</option>
+                <option value="Tajik">Tajik</option>
+                <option value="Tamazight">Tamazight</option>
+                <option value="Tamazight (Tifinagh)">Tamazight (Tifinagh)</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Tatar">Tatar</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Tetum">Tetum</option>
+                <option value="Thai">Thai</option>
+                <option value="Tibetan">Tibetan</option>
+                <option value="Tigrinya">Tigrinya</option>
+                <option value="Tiv">Tiv</option>
+                <option value="Tok Pisin">Tok Pisin</option>
+                <option value="Tongan">Tongan</option>
+                <option value="Tshiluba">Tshiluba</option>
+                <option value="Tsonga">Tsonga</option>
+                <option value="Tswana">Tswana</option>
+                <option value="Tulu">Tulu</option>
+                <option value="Tumbuka">Tumbuka</option>
+                <option value="Turkish">Turkish</option>
+                <option value="Turkmen">Turkmen</option>
+                <option value="Tuvan">Tuvan</option>
+                <option value="Twi">Twi</option>
+                <option value="Udmurt">Udmurt</option>
+                <option value="Ukrainian">Ukrainian</option>
+                <option value="Urdu">Urdu</option>
+                <option value="Uyghur">Uyghur</option>
+                <option value="Uzbek">Uzbek</option>
+                <option value="Venda">Venda</option>
+                <option value="Venetian">Venetian</option>
+                <option value="Vietnamese">Vietnamese</option>
+                <option value="Waray">Waray</option>
+                <option value="Welsh">Welsh</option>
+                <option value="Wolof">Wolof</option>
+                <option value="Xhosa">Xhosa</option>
+                <option value="Yakut">Yakut</option>
+                <option value="Yiddish">Yiddish</option>
+                <option value="Yoruba">Yoruba</option>
+                <option value="Yucatec Maya">Yucatec Maya</option>
+                <option value="Zapotec">Zapotec</option>
+                <option value="Zulu">Zulu</option>
+            </select>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="grid grid-2" style="align-items: center;">
+                <div>
+                    <h1 class="text-gradient" data-i18n="hero_title">THE VISIONARY<br>BEHIND SPEECH TECH</h1>
+                    <p class="hero-desc" data-i18n="hero_desc">
+                        From a house in Dadizele to a $10 Billion Valuation. A story of innovation, ambition, and
+                        betrayal.
+                    </p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#drama" class="btn btn-primary" data-i18n="hero_btn_story">Read the Story</a>
+                        <a href="#technology" class="btn btn-secondary" data-i18n="hero_btn_tech">The Tech</a>
+                    </div>
+                </div>
+
+                <div style="position: relative;">
+                    <div id="did-agent-root"></div>
+                    <div class="agent-status" data-i18n="agent_status">
+                        AI AGENT: ACTIVE
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="module" src="https://agent.d-id.com/v2/index.js" data-mode="full"
+            data-client-key="Z29vZ2xlLW9hdXRoMnwxMDgyMTU0NzU5NzQ0MzM3NTA3NzQ6TzdtaVo2LTVfM1JQbnFtMnJ4NE9Z"
+            data-agent-id="v2_agt_iv3O6WY4" data-name="did-agent" data-monitor="true" data-target-id="did-agent-root">
+            </script>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2 data-i18n="about_heading">The Origin & Vision</h2>
+            <div class="grid grid-2">
+                <div>
+                    <p data-i18n="about_p1">It started with a dream and a mortgage. In 1987, Pol Hauspie and I founded Lernout & Hauspie
+                        (L&amp;H) in Ieper, Belgium. We didn't have capital, so I sold my house in Dadizele. We believed
+                        that computers could do more than calculate; we believed they could <strong>speak and
+                            listen</strong>.</p>
+                    <p data-i18n="about_p2">By late 1999, Microsoft, Intel and many others had thoroughly vetted our technology and found it
+                        to be world-class. Bill Gates himself visited Ieper and declared L&amp;H the world leader in
+                        language technology.</p>
+                </div>
+                <div>
+                    <div class="card">
+                        <h3 data-i18n="about_card_title">A Global Ambition</h3>
+                        <p data-i18n="about_card_p">Our goal was to bridge the gap between people and technology using natural language. We
+                            developed coding for 40 different languages simultaneously using our LDC (Language
+                            Development Companies) model—a franchising system that was later misunderstood and
+                            criminalized.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technology">
+        <div class="container">
+            <h2 data-i18n="tech_heading">The Technology</h2>
+            <p class="section-intro" data-i18n="tech_intro">
+                Critics called it "baked air." The reality was 450+ patents and code that powers today's AI, including
+                Siri and Alexa.
+            </p>
+
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3 data-i18n="tech_card1_title">Speech Synthesis (TTS)</h3>
+                    <p data-i18n="tech_card1_p">Converting text into natural-sounding speech. We pioneered this for car navigation (Mercedes,
+                        BMW) and tools for the visually impaired. Today, this is the voice of your GPS.</p>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="tech_card2_title">Speech Recognition</h3>
+                    <p data-i18n="tech_card2_p">Converting spoken words into text. Used by doctors (Dragon Naturally Speaking) and the military.
+                        This tech is the direct ancestor of modern assistants like Siri.</p>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="tech_card3_title">Speech Compression</h3>
+                    <p data-i18n="tech_card3_p">The foundation for digital storage (Dictaphone) and later VOIP applications like Skype. We
+                        converted analog speech to highly compressed digital formats.</p>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="tech_card4_title">Semantic Search / Data Mining</h3>
+                    <p data-i18n="tech_card4_p">Searching for <em>concepts</em> rather than just keywords. Critical for intelligence agencies
+                        (CIA, NSA) to sift through massive amounts of intercepted data. Vantage Linguistics still uses
+                        this today.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="drama">
+        <div class="container">
+            <h2 data-i18n="drama_heading">The Greek Drama</h2>
+
+            <div class="timeline-item">
+                <h3 data-i18n="drama_rise_title">The Rise: A Threat to the Status Quo</h3>
+                <p data-i18n="drama_rise_p1">By 2000, L&amp;H was worth over <span style="color: var(--primary);">$10 Billion</span>. We acquired
+                    <strong>Dragon</strong> and <strong>Dictaphone</strong> ($900M). We weren't just a Belgian startup
+                    anymore; we owned strategic assets used by the Pentagon and US intelligence. We had become a
+                    "Thousand-legged danger" to established US interests.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3 data-i18n="drama_fall_title">The Fall: The Scorpion and the Frog</h3>
+                <p data-i18n="drama_fall_p1">The fall wasn't just caused by accounting errors in Korea. It was an orchestrated dismantling. When
+                    the crisis hit, we brought in "saviors" like John Duerden (former Dictaphone CEO) and Philippe
+                    Bodson.</p>
+                <p data-i18n="drama_fall_p2">Instead of saving the company, they acted like the Scorpion in the fable. Duerden collaborated with
+                    short-sellers. Bodson ignored a $400M rescue offer from Daimler Benz/Temic.</p>
+            </div>
+
+            <div class="quote-box" data-i18n="drama_quote">
+                "We were beaten not because our technology was fake, but because it was too valuable to remain in
+                foreign hands. Scansoft bought our assets for a measly $11 million. Later, Microsoft bought the
+                evolution of that tech (Nuance) for $20 billion."
+            </div>
+        </div>
+    </section>
+
+    <section id="legacy">
+        <div class="container">
+            <h2 data-i18n="legacy_heading">The Legacy</h2>
+            <div class="grid grid-4" style="margin-bottom: 4rem;">
+                <div style="text-align: center;">
+                    <div class="stat-value">$16B+</div>
+                    <div class="stat-label" data-i18n="legacy_stat1_label">Nuance Sale</div>
+                </div>
+                <div style="text-align: center;">
+                    <div class="stat-value">450+</div>
+                    <div class="stat-label" data-i18n="legacy_stat2_label">Patents</div>
+                </div>
+                <div style="text-align: center;">
+                    <div class="stat-value">4B</div>
+                    <div class="stat-label" data-i18n="legacy_stat3_label">Devices Today</div>
+                </div>
+                <div style="text-align: center;">
+                    <div class="stat-value">1987</div>
+                    <div class="stat-label" data-i18n="legacy_stat4_label">Founded</div>
+                </div>
+            </div>
+
+            <p data-i18n="legacy_intro_p">The media called it a fraud. But if it was fake, why did:</p>
+            <ul>
+                <li data-i18n="legacy_li1"><strong>Microsoft</strong> invest $60 Million in 1997?</li>
+                <li data-i18n="legacy_li2"><strong>Intel</strong> invest $30 Million in 1999?</li>
+                <li data-i18n="legacy_li3"><strong>Bill Gates</strong> visit Ieper personally to declare us market leaders?</li>
+                <li data-i18n="legacy_li4"><strong>Apple's Siri</strong> and <strong>Amazon's Alexa</strong> run on core technology derived
+                    from L&amp;H?</li>
+            </ul>
+            <p data-i18n="legacy_conclusion">The tragic irony is that the LDC (Language Development Companies) model, which was criminalized, was
+                actually a valid franchising model to develop 40 languages simultaneously. We made mistakes in Korea,
+                but the company was solvable.</p>
+        </div>
+    </section>
+
+    <section id="future">
+        <div class="container">
+            <h2 data-i18n="future_heading">The Future: Eburon</h2>
+            <div class="grid grid-2" style="align-items: center;">
+                <div>
+                    <p data-i18n="future_p1">The vision of natural language technology didn't end. It has been reborn.</p>
+                    <p data-i18n="future_p2"><strong>Eburon</strong> is the new chapter, continuing the legacy of innovation in AI and speech
+                        technology.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="eburon.html" class="btn btn-primary" data-i18n="future_btn_discover">Discover Eburon AI</a>
+                        <a href="https://eburon.ai" class="btn btn-secondary" target="_blank"
+                            rel="noopener noreferrer" data-i18n="future_btn_corporate">Visit Corporate Site</a>
+                    </div>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <h3 data-i18n="future_card_title">The Intelligence of Tomorrow</h3>
+                    <p data-i18n="future_card_p">Experience the next generation of our language technology. Private, multi-lingual, and
+                        context-aware.</p>
+                    <a href="eburon.html" class="btn" data-i18n="future_card_btn"
+                        style="margin-top: 20px; background: rgba(255,255,255,0.1); color: #fff;">See Capabilities</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p data-i18n="footer_p1">© 2026 Jo Lernout. Navigate the history of speech technology.</p>
+        <p style="margin-top: 1rem; opacity: 0.6;" data-i18n="footer_p2">Based on the memoirs "De Ondergang van Lernout & Hauspie".</p>
+        <!-- Translation attribution -->
+        <p class="translated-by" data-i18n="translated_by">Translated by Eburon AI</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const links = document.querySelectorAll('.nav-links a');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    document.body.classList.toggle('no-scroll');
+                });
+            }
+
+            // Close menu when clicking a link
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                });
+            });
+        });
+    </script>
+
+    <!-- Language translation script -->
+    <script>
+        // Define translation strings for multiple languages. The keys correspond to data-i18n attributes in the markup.
+        const translations = {
+            en: {
+                nav_about: "About",
+                nav_tech: "Technology",
+                nav_drama: "The Greek Drama",
+                nav_legacy: "Legacy",
+                nav_future: "The Future",
+                nav_apps: "Apps",
+                hero_title: "THE VISIONARY<br>BEHIND SPEECH TECH",
+                hero_desc: "From a house in Dadizele to a $10 Billion Valuation. A story of innovation, ambition, and betrayal.",
+                hero_btn_story: "Read the Story",
+                hero_btn_tech: "The Tech",
+                agent_status: "AI AGENT: ACTIVE",
+                about_heading: "The Origin & Vision",
+                about_p1: "It started with a dream and a mortgage. In 1987, Pol Hauspie and I founded Lernout &amp; Hauspie (L&amp;H) in Ieper, Belgium. We didn't have capital, so I sold my house in Dadizele. We believed that computers could do more than calculate; we believed they could <strong>speak and listen</strong>.",
+                about_p2: "By late 1999, Microsoft, Intel and many others had thoroughly vetted our technology and found it to be world-class. Bill Gates himself visited Ieper and declared L&amp;H the world leader in language technology.",
+                about_card_title: "A Global Ambition",
+                about_card_p: "Our goal was to bridge the gap between people and technology using natural language. We developed coding for 40 different languages simultaneously using our LDC (Language Development Companies) model—a franchising system that was later misunderstood and criminalized.",
+                tech_heading: "The Technology",
+                tech_intro: "Critics called it \"baked air.\" The reality was 450+ patents and code that powers today's AI, including Siri and Alexa.",
+                tech_card1_title: "Speech Synthesis (TTS)",
+                tech_card1_p: "Converting text into natural-sounding speech. We pioneered this for car navigation (Mercedes, BMW) and tools for the visually impaired. Today, this is the voice of your GPS.",
+                tech_card2_title: "Speech Recognition",
+                tech_card2_p: "Converting spoken words into text. Used by doctors (Dragon Naturally Speaking) and the military. This tech is the direct ancestor of modern assistants like Siri.",
+                tech_card3_title: "Speech Compression",
+                tech_card3_p: "The foundation for digital storage (Dictaphone) and later VOIP applications like Skype. We converted analog speech to highly compressed digital formats.",
+                tech_card4_title: "Semantic Search / Data Mining",
+                tech_card4_p: "Searching for <em>concepts</em> rather than just keywords. Critical for intelligence agencies (CIA, NSA) to sift through massive amounts of intercepted data. Vantage Linguistics still uses this today.",
+                drama_heading: "The Greek Drama",
+                drama_rise_title: "The Rise: A Threat to the Status Quo",
+                drama_rise_p1: "By 2000, L&amp;H was worth over <span style=\"color: var(--primary);\">$10 Billion</span>. We acquired <strong>Dragon</strong> and <strong>Dictaphone</strong> ($900M). We weren't just a Belgian startup anymore; we owned strategic assets used by the Pentagon and US intelligence. We had become a \"Thousand-legged danger\" to established US interests.",
+                drama_fall_title: "The Fall: The Scorpion and the Frog",
+                drama_fall_p1: "The fall wasn't just caused by accounting errors in Korea. It was an orchestrated dismantling. When the crisis hit, we brought in \"saviors\" like John Duerden (former Dictaphone CEO) and Philippe Bodson.",
+                drama_fall_p2: "Instead of saving the company, they acted like the Scorpion in the fable. Duerden collaborated with short-sellers. Bodson ignored a $400M rescue offer from Daimler Benz/Temic.",
+                drama_quote: "We were beaten not because our technology was fake, but because it was too valuable to remain in foreign hands. Scansoft bought our assets for a measly $11 million. Later, Microsoft bought the evolution of that tech (Nuance) for $20 billion.",
+                legacy_heading: "The Legacy",
+                legacy_stat1_label: "Nuance Sale",
+                legacy_stat2_label: "Patents",
+                legacy_stat3_label: "Devices Today",
+                legacy_stat4_label: "Founded",
+                legacy_intro_p: "The media called it a fraud. But if it was fake, why did:",
+                legacy_li1: "<strong>Microsoft</strong> invest $60 Million in 1997?",
+                legacy_li2: "<strong>Intel</strong> invest $30 Million in 1999?",
+                legacy_li3: "<strong>Bill Gates</strong> visit Ieper personally to declare us market leaders?",
+                legacy_li4: "<strong>Apple's Siri</strong> and <strong>Amazon's Alexa</strong> run on core technology derived from L&amp;H?",
+                legacy_conclusion: "The tragic irony is that the LDC (Language Development Companies) model, which was criminalized, was actually a valid franchising model to develop 40 languages simultaneously. We made mistakes in Korea, but the company was solvable.",
+                future_heading: "The Future: Eburon",
+                future_p1: "The vision of natural language technology didn't end. It has been reborn.",
+                future_p2: "<strong>Eburon</strong> is the new chapter, continuing the legacy of innovation in AI and speech technology.",
+                future_btn_discover: "Discover Eburon AI",
+                future_btn_corporate: "Visit Corporate Site",
+                future_card_title: "The Intelligence of Tomorrow",
+                future_card_p: "Experience the next generation of our language technology. Private, multi-lingual, and context-aware.",
+                future_card_btn: "See Capabilities",
+                footer_p1: "© 2026 Jo Lernout. Navigate the history of speech technology.",
+                footer_p2: "Based on the memoirs \"De Ondergang van Lernout & Hauspie\".",
+                // Attribution line shown in the footer
+                translated_by: "Translated by Eburon AI"
+            },
+            nl: {
+                nav_about: "Over",
+                nav_tech: "Technologie",
+                nav_drama: "Het Griekse Drama",
+                nav_legacy: "Nalatenschap",
+                nav_future: "De Toekomst",
+                nav_apps: "Apps",
+                hero_title: "DE VISIONAIR<br>ACHTER SPRAAKTECH",
+                hero_desc: "Van een huis in Dadizele tot een waardering van 10 miljard dollar. Een verhaal van innovatie, ambitie en verraad.",
+                hero_btn_story: "Lees het Verhaal",
+                hero_btn_tech: "De Technologie",
+                agent_status: "AI-AGENT: ACTIEF",
+                about_heading: "De Oorsprong & Visie",
+                about_p1: "Het begon met een droom en een hypotheek. In 1987 richtten Pol Hauspie en ik Lernout &amp; Hauspie (L&amp;H) op in Ieper, België. We hadden geen kapitaal, dus verkocht ik mijn huis in Dadizele. We geloofden dat computers meer konden dan alleen berekenen; we geloofden dat ze konden <strong>spreken en luisteren</strong>.",
+                about_p2: "Eind 1999 hadden Microsoft, Intel en vele anderen onze technologie grondig onderzocht en van wereldklasse bevonden. Bill Gates bezocht Ieper persoonlijk en verklaarde L&amp;H tot wereldleider in taaltechnologie.",
+                about_card_title: "Een Wereldwijde Ambitie",
+                about_card_p: "Ons doel was om de kloof tussen mensen en technologie te overbruggen met natuurlijke taal. We ontwikkelden codering voor 40 verschillende talen tegelijkertijd met behulp van ons LDC (Language Development Companies) model — een franchisemodel dat later verkeerd begrepen en gecriminaliseerd werd.",
+                tech_heading: "De Technologie",
+                tech_intro: "Critici noemden het \"gebakken lucht.\" De realiteit was meer dan 450 patenten en code die de huidige AI aandrijft, waaronder Siri en Alexa.",
+                tech_card1_title: "Spraaksynthese (TTS)",
+                tech_card1_p: "Tekst omzetten in natuurlijk klinkende spraak. We waren pioniers hierin voor autonavigatie (Mercedes, BMW) en hulpmiddelen voor slechtzienden. Vandaag is dit de stem van je GPS.",
+                tech_card2_title: "Spraakherkenning",
+                tech_card2_p: "Gesproken woorden omzetten in tekst. Gebruikt door artsen (Dragon Naturally Speaking) en het leger. Deze technologie is de directe voorloper van moderne assistenten zoals Siri.",
+                tech_card3_title: "Spraakcompressie",
+                tech_card3_p: "De basis voor digitale opslag (Dictaphone) en later VOIP-toepassingen zoals Skype. We zetten analoge spraak om naar sterk gecomprimeerde digitale formaten.",
+                tech_card4_title: "Semantisch Zoeken / Data Mining",
+                tech_card4_p: "Zoeken naar <em>concepten</em> in plaats van alleen trefwoorden. Essentieel voor inlichtingendiensten (CIA, NSA) om enorme hoeveelheden onderschepte gegevens door te ploegen. Vantage Linguistics gebruikt dit vandaag nog steeds.",
+                drama_heading: "Het Griekse Drama",
+                drama_rise_title: "De Opkomst: Een Bedreiging voor de Status Quo",
+                drama_rise_p1: "Tegen 2000 was L&amp;H meer dan <span style=\"color: var(--primary);\">$10 miljard</span> waard. We kochten <strong>Dragon</strong> en <strong>Dictaphone</strong> ($900M). We waren niet langer slechts een Belgische startup; we bezaten strategische activa die door het Pentagon en de Amerikaanse inlichtingendienst werden gebruikt. We waren een \"Duizendpoot-gevaar\" geworden voor gevestigde Amerikaanse belangen.",
+                drama_fall_title: "De Val: De Schorpioen en de Kikker",
+                drama_fall_p1: "De val werd niet alleen veroorzaakt door boekhoudkundige fouten in Korea. Het was een georkestreerde ontmanteling. Toen de crisis toesloeg, brachten we 'redders' binnen zoals John Duerden (voormalig CEO van Dictaphone) en Philippe Bodson.",
+                drama_fall_p2: "In plaats van het bedrijf te redden, gedroegen zij zich als de schorpioen in de fabel. Duerden werkte samen met short-sellers. Bodson negeerde een reddingsbod van 400 miljoen dollar van Daimler Benz/Temic.",
+                drama_quote: "We werden verslagen niet omdat onze technologie nep was, maar omdat ze te waardevol was om in buitenlandse handen te blijven. Scansoft kocht onze activa voor een magere 11 miljoen dollar. Later kocht Microsoft de evolutie van die technologie (Nuance) voor 20 miljard dollar.",
+                legacy_heading: "De Nalatenschap",
+                legacy_stat1_label: "Nuance-verkoop",
+                legacy_stat2_label: "Patenten",
+                legacy_stat3_label: "Apparaten Vandaag",
+                legacy_stat4_label: "Opgericht",
+                legacy_intro_p: "De media noemden het fraude. Maar als het nep was, waarom dan:",
+                legacy_li1: "<strong>Microsoft</strong> in 1997 60 miljoen dollar investeerde?",
+                legacy_li2: "<strong>Intel</strong> in 1999 30 miljoen dollar investeerde?",
+                legacy_li3: "<strong>Bill Gates</strong> Ieper persoonlijk bezocht om ons marktleider te verklaren?",
+                legacy_li4: "<strong>Apple's Siri</strong> en <strong>Amazon's Alexa</strong> draaien op kerntechnologie afgeleid van L&amp;H?",
+                legacy_conclusion: "De tragische ironie is dat het LDC (Language Development Companies) model, dat gecriminaliseerd werd, eigenlijk een geldig franchisemodel was om 40 talen tegelijk te ontwikkelen. We maakten fouten in Korea, maar het bedrijf was oplosbaar.",
+                future_heading: "De Toekomst: Eburon",
+                future_p1: "De visie op natuurlijke taaltechnologie eindigde niet. Ze is herboren.",
+                future_p2: "<strong>Eburon</strong> is het nieuwe hoofdstuk, voortbouwend op de erfenis van innovatie in AI en spraaktechnologie.",
+                future_btn_discover: "Ontdek Eburon AI",
+                future_btn_corporate: "Bezoek de Bedrijfssite",
+                future_card_title: "De Intelligentie van Morgen",
+                future_card_p: "Ervaar de volgende generatie van onze taaltechnologie. Privé, meertalig en contextbewust.",
+                future_card_btn: "Bekijk Mogelijkheden",
+                footer_p1: "© 2026 Jo Lernout. Navigeer door de geschiedenis van spraaktechnologie.",
+                footer_p2: "Gebaseerd op de memoires \"De Ondergang van Lernout & Hauspie\".",
+                // Attribution line shown in the footer
+                translated_by: "Vertaald door Eburon AI"
+            }
+        };
+
+        /**
+         * Apply translations to all elements that declare a data-i18n attribute.
+         * @param {string} lang The language code to apply (e.g. 'en' or 'nl').
+         */
+        function applyTranslations(lang) {
+            const dictionary = translations[lang] || translations['en'];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const translation = dictionary[key];
+                if (translation) {
+                    el.innerHTML = translation;
+                }
+            });
+        }
+
+        // Initialize language based on saved preference or browser settings and set up change handler.
+        document.addEventListener('DOMContentLoaded', () => {
+            const select = document.getElementById('language-select');
+            // Try to retrieve previously saved language preference
+            let savedLang = localStorage.getItem('lang');
+            let initialLang;
+
+            if (!savedLang) {
+                // No saved language: detect browser language
+                const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+                // Extract base language code (e.g., 'en' from 'en-US')
+                const baseLang = browserLang.split('-')[0];
+                // Use the detected language if we have a translation dictionary for it; otherwise default to English
+                initialLang = translations.hasOwnProperty(baseLang) ? baseLang : 'en';
+                // Persist for subsequent visits
+                localStorage.setItem('lang', initialLang);
+            } else {
+                initialLang = savedLang;
+            }
+
+            // Apply translations for the chosen language
+            applyTranslations(initialLang);
+
+            if (select) {
+                // Reflect the current language in the selector
+                select.value = initialLang;
+                select.addEventListener('change', (e) => {
+                    const newLang = e.target.value;
+                    // Persist new language and update translations
+                    localStorage.setItem('lang', newLang);
+                    applyTranslations(newLang);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

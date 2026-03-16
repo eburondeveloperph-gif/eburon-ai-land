@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eburon AI | The Intelligence of Tomorrow</title>
+    <style>
+        /* Premium Dark Visionary Theme - Apple Inspired */
+        :root {
+            --background: #000000;
+            --foreground: #f5f5f7;
+            --primary: #f59e0b;
+            /* Gold/Amber */
+            --primary-foreground: #000000;
+            --secondary: #1d1d1f;
+            --muted: #424245;
+            --muted-foreground: #86868b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--foreground);
+            background: var(--background);
+            line-height: 1.5;
+            font-size: 17px;
+            overflow-x: hidden;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 22px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3 {
+            color: var(--foreground);
+            letter-spacing: -0.015em;
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 64px;
+            line-height: 1.05;
+            font-weight: 700;
+            margin-bottom: 0.2em;
+        }
+
+        h2 {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 21px;
+            line-height: 1.5;
+            color: #a1a1a6;
+            margin-bottom: 1.2em;
+            font-weight: 400;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #fbbf24, #d97706);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Components */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn:hover {
+            transform: scale(1.02);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 44px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 21px;
+            color: var(--foreground);
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links a {
+            color: #e8e8ed;
+            text-decoration: none;
+            font-size: 12px;
+            margin-left: 24px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        /* Language selector styling */
+        nav select {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--foreground);
+            border: 1px solid var(--muted);
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            margin-left: 24px;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding-top: 60px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 30%, rgba(251, 191, 36, 0.15), transparent 50%);
+        }
+
+        /* Feature Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+
+        /* Chat Interface Mockup */
+        .chat-interface {
+            background: #1c1c1e;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .chat-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #444;
+        }
+
+        .dot.red {
+            background: #ff5f57;
+        }
+
+        .dot.yellow {
+            background: #febc2e;
+        }
+
+        .dot.green {
+            background: #28c840;
+        }
+
+        .chat-body {
+            padding: 40px;
+            text-align: left;
+        }
+
+        .message {
+            margin-bottom: 24px;
+            max-width: 80%;
+        }
+
+        .message.user {
+            margin-left: auto;
+            text-align: right;
+            color: #fff;
+        }
+
+        .message.ai {
+            margin-right: auto;
+            color: #a1a1a6;
+        }
+
+        .bubble {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 18px;
+            font-size: 17px;
+            line-height: 1.4;
+        }
+
+        .user .bubble {
+            background: var(--primary);
+            color: #000;
+            border-bottom-right-radius: 4px;
+        }
+
+        .ai .bubble {
+            background: #2c2c2e;
+            color: #fff;
+            border-bottom-left-radius: 4px;
+        }
+
+        /* Code Block */
+        .code-snippet {
+            font-family: monospace;
+            background: #000;
+            padding: 20px;
+            border-radius: 12px;
+            color: var(--primary);
+            border: 1px solid #333;
+            margin-top: 40px;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Small translation attribution in footer */
+        footer .translated-by {
+            font-size: 10px;
+            opacity: 0.6;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <a href="index.html" class="logo">JO LERNOUT</a>
+            <div class="nav-links">
+                <a href="index.html" data-i18n="nav_story">The Story</a>
+                <a href="eburon.html" style="color: #fff; opacity: 1;" data-i18n="nav_eburon">Eburon AI</a>
+                <a href="app.html" data-i18n="nav_apps">Apps</a>
+            </div>
+            <!-- Language selector -->
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="nl">Nederlands</option>
+                <option value="Flemish">Flemish</option>
+                <option value="Abkhaz">Abkhaz</option>
+                <option value="Acehnese">Acehnese</option>
+                <option value="Acholi">Acholi</option>
+                <option value="Afar">Afar</option>
+                <option value="Afrikaans">Afrikaans</option>
+                <option value="Albanian">Albanian</option>
+                <option value="Alur">Alur</option>
+                <option value="Amharic">Amharic</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Armenian">Armenian</option>
+                <option value="Assamese">Assamese</option>
+                <option value="Avar">Avar</option>
+                <option value="Awadhi">Awadhi</option>
+                <option value="Aymara">Aymara</option>
+                <option value="Azerbaijani">Azerbaijani</option>
+                <option value="Balinese">Balinese</option>
+                <option value="Baluchi">Baluchi</option>
+                <option value="Bambara">Bambara</option>
+                <option value="Baoulé">Baoulé</option>
+                <option value="Bashkir">Bashkir</option>
+                <option value="Basque">Basque</option>
+                <option value="Batak Karo">Batak Karo</option>
+                <option value="Batak Simalungun">Batak Simalungun</option>
+                <option value="Batak Toba">Batak Toba</option>
+                <option value="Belarusian">Belarusian</option>
+                <option value="Bemba">Bemba</option>
+                <option value="Bengali">Bengali</option>
+                <option value="Betawi">Betawi</option>
+                <option value="Bhojpuri">Bhojpuri</option>
+                <option value="Bikol">Bikol</option>
+                <option value="Bosnian">Bosnian</option>
+                <option value="Breton">Breton</option>
+                <option value="Bulgarian">Bulgarian</option>
+                <option value="Buryat">Buryat</option>
+                <option value="Cantonese">Cantonese</option>
+                <option value="Catalan">Catalan</option>
+                <option value="Cebuano">Cebuano</option>
+                <option value="Chamorro">Chamorro</option>
+                <option value="Chechen">Chechen</option>
+                <option value="Chichewa">Chichewa</option>
+                <option value="Chinese (Simplified)">Chinese (Simplified)</option>
+                <option value="Chinese (Traditional)">Chinese (Traditional)</option>
+                <option value="Chuukese">Chuukese</option>
+                <option value="Chuvash">Chuvash</option>
+                <option value="Corsican">Corsican</option>
+                <option value="Crimean Tatar (Cyrillic)">Crimean Tatar (Cyrillic)</option>
+                <option value="Crimean Tatar (Latin)">Crimean Tatar (Latin)</option>
+                <option value="Croatian">Croatian</option>
+                <option value="Czech">Czech</option>
+                <option value="Danish">Danish</option>
+                <option value="Dari">Dari</option>
+                <option value="Dhivehi">Dhivehi</option>
+                <option value="Dinka">Dinka</option>
+                <option value="Dogri">Dogri</option>
+                <option value="Dombe">Dombe</option>
+                <option value="Dutch">Dutch</option>
+                <option value="Dyula">Dyula</option>
+                <option value="Dzongkha">Dzongkha</option>
+                <option value="Esperanto">Esperanto</option>
+                <option value="Estonian">Estonian</option>
+                <option value="Ewe">Ewe</option>
+                <option value="Faroese">Faroese</option>
+                <option value="Fijian">Fijian</option>
+                <option value="Filipino">Filipino</option>
+                <option value="Finnish">Finnish</option>
+                <option value="Fon">Fon</option>
+                <option value="French">French</option>
+                <option value="French (Canada)">French (Canada)</option>
+                <option value="Frisian">Frisian</option>
+                <option value="Friulian">Friulian</option>
+                <option value="Fulani">Fulani</option>
+                <option value="Ga">Ga</option>
+                <option value="Galician">Galician</option>
+                <option value="Georgian">Georgian</option>
+                <option value="German">German</option>
+                <option value="Greek">Greek</option>
+                <option value="Guarani">Guarani</option>
+                <option value="Gujarati">Gujarati</option>
+                <option value="Haitian Creole">Haitian Creole</option>
+                <option value="Hakha Chin">Hakha Chin</option>
+                <option value="Hausa">Hausa</option>
+                <option value="Hawaiian">Hawaiian</option>
+                <option value="Hebrew">Hebrew</option>
+                <option value="Hiligaynon">Hiligaynon</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Hmong">Hmong</option>
+                <option value="Hungarian">Hungarian</option>
+                <option value="Hunsrik">Hunsrik</option>
+                <option value="Iban">Iban</option>
+                <option value="Icelandic">Icelandic</option>
+                <option value="Igbo">Igbo</option>
+                <option value="Ilocano">Ilocano</option>
+                <option value="Indonesian">Indonesian</option>
+                <option value="Inuktut (Latin)">Inuktut (Latin)</option>
+                <option value="Inuktut (Syllabics)">Inuktut (Syllabics)</option>
+                <option value="Irish">Irish</option>
+                <option value="Italian">Italian</option>
+                <option value="Jamaican Patois">Jamaican Patois</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Javanese">Javanese</option>
+                <option value="Jingpo">Jingpo</option>
+                <option value="Kalaallisut">Kalaallisut</option>
+                <option value="Kannada">Kannada</option>
+                <option value="Kanuri">Kanuri</option>
+                <option value="Kapampangan">Kapampangan</option>
+                <option value="Kazakh">Kazakh</option>
+                <option value="Khasi">Khasi</option>
+                <option value="Khmer">Khmer</option>
+                <option value="Kiga">Kiga</option>
+                <option value="Kikongo">Kikongo</option>
+                <option value="Kinyarwanda">Kinyarwanda</option>
+                <option value="Kituba">Kituba</option>
+                <option value="Kokborok">Kokborok</option>
+                <option value="Komi">Komi</option>
+                <option value="Konkani">Konkani</option>
+                <option value="Korean">Korean</option>
+                <option value="Krio">Krio</option>
+                <option value="Kurdish (Kurmanji)">Kurdish (Kurmanji)</option>
+                <option value="Kurdish (Sorani)">Kurdish (Sorani)</option>
+                <option value="Kyrgyz">Kyrgyz</option>
+                <option value="Lao">Lao</option>
+                <option value="Latgalian">Latgalian</option>
+                <option value="Latin">Latin</option>
+                <option value="Latvian">Latvian</option>
+                <option value="Ligurian">Ligurian</option>
+                <option value="Limburgish">Limburgish</option>
+                <option value="Lingala">Lingala</option>
+                <option value="Lithuanian">Lithuanian</option>
+                <option value="Lombard">Lombard</option>
+                <option value="Luganda">Luganda</option>
+                <option value="Luo">Luo</option>
+                <option value="Luxembourgish">Luxembourgish</option>
+                <option value="Macedonian">Macedonian</option>
+                <option value="Madurese">Madurese</option>
+                <option value="Maithili">Maithili</option>
+                <option value="Makassar">Makassar</option>
+                <option value="Malagasy">Malagasy</option>
+                <option value="Malay">Malay</option>
+                <option value="Malay (Jawi)">Malay (Jawi)</option>
+                <option value="Malayalam">Malayalam</option>
+                <option value="Maltese">Maltese</option>
+                <option value="Mam">Mam</option>
+                <option value="Manx">Manx</option>
+                <option value="Maori">Maori</option>
+                <option value="Marathi">Marathi</option>
+                <option value="Marshallese">Marshallese</option>
+                <option value="Marwadi">Marwadi</option>
+                <option value="Mauritian Creole">Mauritian Creole</option>
+                <option value="Meadow Mari">Meadow Mari</option>
+                <option value="Meiteilon (Manipuri)">Meiteilon (Manipuri)</option>
+                <option value="Minang">Minang</option>
+                <option value="Mizo">Mizo</option>
+                <option value="Mongolian">Mongolian</option>
+                <option value="Myanmar (Burmese)">Myanmar (Burmese)</option>
+                <option value="Nahuatl (Eastern Huasteca)">Nahuatl (Eastern Huasteca)</option>
+                <option value="Ndau">Ndau</option>
+                <option value="Ndebele (South)">Ndebele (South)</option>
+                <option value="Napalbhasa (Newari)">Napalbhasa (Newari)</option>
+                <option value="NKo">NKo</option>
+                <option value="Norwegian">Norwegian</option>
+                <option value="Nuer">Nuer</option>
+                <option value="Occitan">Occitan</option>
+                <option value="Odia (Oriya)">Odia (Oriya)</option>
+                <option value="Oromo">Oromo</option>
+                <option value="Ossetian">Ossetian</option>
+                <option value="Pangasinan">Pangasinan</option>
+                <option value="Papiamento">Papiamento</option>
+                <option value="Pashto">Pashto</option>
+                <option value="Persian">Persian</option>
+                <option value="Polish">Polish</option>
+                <option value="Portuguese (Brazil)">Portuguese (Brazil)</option>
+                <option value="Portuguese (Portugal)">Portuguese (Portugal)</option>
+                <option value="Punjabi (Gurmukhi)">Punjabi (Gurmukhi)</option>
+                <option value="Punjabi (Shahmukhi)">Punjabi (Shahmukhi)</option>
+                <option value="Quechua">Quechua</option>
+                <option value="Qʼeqchiʼ">Qʼeqchiʼ</option>
+                <option value="Romani">Romani</option>
+                <option value="Romanian">Romanian</option>
+                <option value="Rundi">Rundi</option>
+                <option value="Russian">Russian</option>
+                <option value="Sami (North)">Sami (North)</option>
+                <option value="Samoan">Samoan</option>
+                <option value="Sango">Sango</option>
+                <option value="Sanskrit">Sanskrit</option>
+                <option value="Santali (Latin)">Santali (Latin)</option>
+                <option value="Santali (Ol Chiki)">Santali (Ol Chiki)</option>
+                <option value="Scots Gaelic">Scots Gaelic</option>
+                <option value="Sepedi">Sepedi</option>
+                <option value="Serbian">Serbian</option>
+                <option value="Sesotho">Sesotho</option>
+                <option value="Seychellois Creole">Seychellois Creole</option>
+                <option value="Shan">Shan</option>
+                <option value="Shona">Shona</option>
+                <option value="Sicilian">Sicilian</option>
+                <option value="Silesian">Silesian</option>
+                <option value="Sindhi">Sindhi</option>
+                <option value="Sinhala">Sinhala</option>
+                <option value="Slovak">Slovak</option>
+                <option value="Slovenian">Slovenian</option>
+                <option value="Somali">Somali</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Sundanese">Sundanese</option>
+                <option value="Susu">Susu</option>
+                <option value="Swahili">Swahili</option>
+                <option value="Swati">Swati</option>
+                <option value="Swedish">Swedish</option>
+                <option value="Tahitian">Tahitian</option>
+                <option value="Tajik">Tajik</option>
+                <option value="Tamazight">Tamazight</option>
+                <option value="Tamazight (Tifinagh)">Tamazight (Tifinagh)</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Tatar">Tatar</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Tetum">Tetum</option>
+                <option value="Thai">Thai</option>
+                <option value="Tibetan">Tibetan</option>
+                <option value="Tigrinya">Tigrinya</option>
+                <option value="Tiv">Tiv</option>
+                <option value="Tok Pisin">Tok Pisin</option>
+                <option value="Tongan">Tongan</option>
+                <option value="Tshiluba">Tshiluba</option>
+                <option value="Tsonga">Tsonga</option>
+                <option value="Tswana">Tswana</option>
+                <option value="Tulu">Tulu</option>
+                <option value="Tumbuka">Tumbuka</option>
+                <option value="Turkish">Turkish</option>
+                <option value="Turkmen">Turkmen</option>
+                <option value="Tuvan">Tuvan</option>
+                <option value="Twi">Twi</option>
+                <option value="Udmurt">Udmurt</option>
+                <option value="Ukrainian">Ukrainian</option>
+                <option value="Urdu">Urdu</option>
+                <option value="Uyghur">Uyghur</option>
+                <option value="Uzbek">Uzbek</option>
+                <option value="Venda">Venda</option>
+                <option value="Venetian">Venetian</option>
+                <option value="Vietnamese">Vietnamese</option>
+                <option value="Waray">Waray</option>
+                <option value="Welsh">Welsh</option>
+                <option value="Wolof">Wolof</option>
+                <option value="Xhosa">Xhosa</option>
+                <option value="Yakut">Yakut</option>
+                <option value="Yiddish">Yiddish</option>
+                <option value="Yoruba">Yoruba</option>
+                <option value="Yucatec Maya">Yucatec Maya</option>
+                <option value="Zapotec">Zapotec</option>
+                <option value="Zulu">Zulu</option>
+            </select>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <h1 class="text-gradient">EBURON</h1>
+            <p style="font-size: 28px; color: #fff; max-width: 700px; margin: 0 auto 40px;" data-i18n="eburon_tagline">
+                The Intelligence of Tomorrow.<br>Built on the Legacy of Yesterday.
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; margin-bottom: 60px;">
+                <a href="https://eburon.ai" class="btn btn-primary" data-i18n="eburon_btn_cloud">Try Eburon Cloud</a>
+                <a href="#local" class="btn" style="background: rgba(255,255,255,0.1); color: #fff;" data-i18n="eburon_btn_local">Run Locally</a>
+            </div>
+
+            <div class="chat-interface">
+                <div class="chat-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="font-size: 12px; font-weight: 600; margin-left: 10px; color: #666;">Eburon Model
+                        v1.0</span>
+                </div>
+                <div class="chat-body">
+                    <div class="message user">
+                        <div class="bubble" data-i18n="eburon_chat1_user">Summarize the legacy of L&amp;H in one sentence.</div>
+                    </div>
+                    <div class="message ai">
+                        <div class="bubble" data-i18n="eburon_chat1_ai">Lernout &amp; Hauspie pioneered the foundational technologies of speech
+                            synthesis and recognition that power today's AI landscape, from Siri to advanced semantic
+                            search.</div>
+                    </div>
+                    <div class="message user">
+                        <div class="bubble" data-i18n="eburon_chat2_user">Generate Python code for a speech recognition loop.</div>
+                    </div>
+                    <div class="message ai">
+                        <div class="bubble" data-i18n="eburon_chat2_ai">Here is a simple implementation using existing libraries...
+                            <br><code>import speech_recognition as sr...</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" style="padding: 120px 0;">
+        <div class="container">
+            <h2 data-i18n="eburon_features_heading">Beyond Conversation</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3 data-i18n="eburon_feature1_title">Deep Context</h3>
+                    <p data-i18n="eburon_feature1_p">Understanding not just words, but meaning. Eburon retains context across long conversations,
+                        mimicking human memory.</p>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="eburon_feature2_title">Polyglot Core</h3>
+                    <p data-i18n="eburon_feature2_p">True to its L&amp;H roots, Eburon is native in 40+ languages. It doesn't translate; it
+                        <em>thinks</em> in the target language.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="eburon_feature3_title">Private &amp; Secure</h3>
+                    <p data-i18n="eburon_feature3_p">Your data is yours. Run Eburon locally on your own hardware. No cloud dependency required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="local" style="padding: 100px 0; text-align: center;">
+        <div class="container">
+            <h2 data-i18n="eburon_local_heading">Run it on your machine</h2>
+            <p data-i18n="eburon_local_p">Experience the power of Eburon directly in your terminal via Ollama.</p>
+
+            <div class="code-snippet">
+                ollama run eburon/eburon
+            </div>
+
+            <p style="margin-top: 40px; font-size: 14px;">
+                <span data-i18n="eburon_local_install">Requires Ollama to be installed.</span> <a href="https://ollama.com" style="color: var(--primary);" data-i18n="eburon_download_ollama">Download
+                    Ollama</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p data-i18n="footer_copy">© 2026 Eburon AI. A Jo Lernout Initiative.</p>
+        <!-- Translation attribution -->
+        <p class="translated-by" data-i18n="translated_by">Translated by Eburon AI</p>
+    </footer>
+
+    <!-- Language translation script -->
+    <script>
+        // Translation dictionary for English and Dutch languages. Each key corresponds to a data-i18n attribute.
+        const translations = {
+            en: {
+                nav_story: "The Story",
+                nav_eburon: "Eburon AI",
+                nav_apps: "Apps",
+                eburon_tagline: "The Intelligence of Tomorrow.<br>Built on the Legacy of Yesterday.",
+                eburon_btn_cloud: "Try Eburon Cloud",
+                eburon_btn_local: "Run Locally",
+                eburon_chat1_user: "Summarize the legacy of L&amp;H in one sentence.",
+                eburon_chat1_ai: "Lernout &amp; Hauspie pioneered the foundational technologies of speech synthesis and recognition that power today's AI landscape, from Siri to advanced semantic search.",
+                eburon_chat2_user: "Generate Python code for a speech recognition loop.",
+                eburon_chat2_ai: "Here is a simple implementation using existing libraries...<br><code>import speech_recognition as sr...</code>",
+                eburon_features_heading: "Beyond Conversation",
+                eburon_feature1_title: "Deep Context",
+                eburon_feature1_p: "Understanding not just words, but meaning. Eburon retains context across long conversations, mimicking human memory.",
+                eburon_feature2_title: "Polyglot Core",
+                eburon_feature2_p: "True to its L&amp;H roots, Eburon is native in 40+ languages. It doesn't translate; it <em>thinks</em> in the target language.",
+                eburon_feature3_title: "Private & Secure",
+                eburon_feature3_p: "Your data is yours. Run Eburon locally on your own hardware. No cloud dependency required.",
+                eburon_local_heading: "Run it on your machine",
+                eburon_local_p: "Experience the power of Eburon directly in your terminal via Ollama.",
+                eburon_local_install: "Requires Ollama to be installed.",
+                eburon_download_ollama: "Download Ollama",
+                footer_copy: "© 2026 Eburon AI. A Jo Lernout Initiative.",
+                // Attribution line shown in the footer
+                translated_by: "Translated by Eburon AI"
+            },
+            nl: {
+                nav_story: "Het Verhaal",
+                nav_eburon: "Eburon AI",
+                nav_apps: "Apps",
+                eburon_tagline: "De intelligentie van morgen.<br>Gebouwd op de erfenis van gisteren.",
+                eburon_btn_cloud: "Probeer Eburon Cloud",
+                eburon_btn_local: "Draai lokaal",
+                eburon_chat1_user: "Vat de erfenis van L&amp;H samen in één zin.",
+                eburon_chat1_ai: "Lernout &amp; Hauspie pionierde de fundamentele technologieën van spraaksynthese en -herkenning die het AI-landschap van vandaag aandrijven, van Siri tot geavanceerd semantisch zoeken.",
+                eburon_chat2_user: "Genereer Python-code voor een spraakherkennende lus.",
+                eburon_chat2_ai: "Hier is een eenvoudige implementatie met bestaande bibliotheken...<br><code>import speech_recognition as sr...</code>",
+                eburon_features_heading: "Voorbij Conversatie",
+                eburon_feature1_title: "Diepe Context",
+                eburon_feature1_p: "Begrijpt niet alleen woorden, maar ook betekenis. Eburon behoudt context gedurende lange gesprekken, net als het menselijk geheugen.",
+                eburon_feature2_title: "Polyglot Kern",
+                eburon_feature2_p: "Getrouw aan zijn L&amp;H-wortels is Eburon thuis in meer dan 40 talen. Het vertaalt niet; het <em>denkt</em> in de doeltaal.",
+                eburon_feature3_title: "Privé &amp; Veilig",
+                eburon_feature3_p: "Jouw gegevens zijn van jou. Draai Eburon lokaal op je eigen hardware. Geen afhankelijkheid van de cloud nodig.",
+                eburon_local_heading: "Draai het op je eigen machine",
+                eburon_local_p: "Ervaar de kracht van Eburon direct in je terminal via Ollama.",
+                eburon_local_install: "Vereist dat Ollama geïnstalleerd is.",
+                eburon_download_ollama: "Download Ollama",
+                footer_copy: "© 2026 Eburon AI. Een initiatief van Jo Lernout.",
+                // Attribution line shown in the footer
+                translated_by: "Vertaald door Eburon AI"
+            }
+        };
+
+        /**
+         * Apply translations to elements marked with data-i18n for the chosen language.
+         * @param {string} lang Language code.
+         */
+        function applyTranslations(lang) {
+            const dictionary = translations[lang] || translations['en'];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const translation = dictionary[key];
+                if (translation) {
+                    el.innerHTML = translation;
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const select = document.getElementById('language-select');
+            // Determine language: use saved preference if available; otherwise detect from browser
+            let savedLang = localStorage.getItem('lang');
+            let initialLang;
+            if (!savedLang) {
+                const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+                const baseLang = browserLang.split('-')[0];
+                initialLang = translations.hasOwnProperty(baseLang) ? baseLang : 'en';
+                localStorage.setItem('lang', initialLang);
+            } else {
+                initialLang = savedLang;
+            }
+            // Apply translations and set selector value
+            applyTranslations(initialLang);
+            if (select) {
+                select.value = initialLang;
+                select.addEventListener('change', e => {
+                    const newLang = e.target.value;
+                    localStorage.setItem('lang', newLang);
+                    applyTranslations(newLang);
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
